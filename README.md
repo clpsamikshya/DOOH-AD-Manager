@@ -1,3 +1,4 @@
+
 #  DOOH Ad Manager
 - A simple DOOH Ad Manager system to manage Screens, Ads, Campaigns, generate playlists, 
 and log Proof of Play.
@@ -150,3 +151,4 @@ GET  /api/proof
     "campaignAds": []
   }
 ]
+
