@@ -1,0 +1,40 @@
+<h2>Screens</h2>
+
+<button (click)="addScreen()">Add Screen</button>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Resolution</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let s of screens">
+    <td>{{ s.name }}</td>
+    <td>{{ s.location }}</td>
+    <td>{{ s.resolution }}</td>
+    <td>{{ s.status }}</td>
+    <td>
+      <button (click)="editScreen(s)">Edit</button>
+      <button (click)="deleteScreen(s.id)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="isEditing && editing">
+  <h3>{{ editing.id ? 'Edit Screen' : 'Add Screen' }}</h3>
+  <label>Name:</label>
+  <input [(ngModel)]="editing.name" />
+  <label>Location:</label>
+  <input [(ngModel)]="editing.location" />
+  <label>Resolution:</label>
+  <input [(ngModel)]="editing.resolution" />
+  <label>Status:</label>
+  <select [(ngModel)]="editing.status">
+    <option value="active">Active</option>
+    <option value="inactive">Inactive</option>
+  </select>
+  <button (click)="saveScreen()">Save</button>
+  <button (click)="cancel()">Cancel</button>
+</div>

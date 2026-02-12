@@ -1,0 +1,42 @@
+<h2>Ads</h2>
+
+<button (click)="addAd()">Add Ad</button>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Screen</th>
+    <th>Media Type</th>
+    <th>Duration</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let a of ads">
+    <td>{{ a.title }}</td>
+    <td>{{ getScreenName(a.screenId) }}</td>
+    <td>{{ a.mediaType }}</td>
+    <td>{{ a.durationSeconds }}s</td>
+    <td>
+      <button (click)="editAd(a)">Edit</button>
+      <button (click)="deleteAd(a.id)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="isEditing && editing">
+  <h3>{{ editing.id ? 'Edit Ad' : 'Add Ad' }}</h3>
+  <label>Title:</label>
+  <input [(ngModel)]="editing.title" />
+  <label>Media URL:</label>
+  <input [(ngModel)]="editing.mediaUrl" />
+  <label>Duration (sec):</label>
+  <input type="number" [(ngModel)]="editing.durationSeconds" />
+  <label>Media Type:</label>
+  <input [(ngModel)]="editing.mediaType" />
+  <label>Screen:</label>
+  <select [(ngModel)]="editing.screenId">
+    <option value="">-- Select Screen --</option>
+    <option *ngFor="let s of screens" [value]="s.id">{{ s.name }}</option>
+  </select>
+  <button (click)="saveAd()">Save</button>
+  <button (click)="cancel()">Cancel</button>
+</div>
