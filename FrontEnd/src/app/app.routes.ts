@@ -17,7 +17,7 @@ export const routes: Routes = [
 
 
 
-// import { Routes } from '@angular/router';
+
 // import { ScreenListComponent } from './components/screen-list/screen-list';
 // import { AdListComponent } from './pages/ad-list/ad-list';
 // import { PlaylistListComponent } from './app/pages/playlist-list';
